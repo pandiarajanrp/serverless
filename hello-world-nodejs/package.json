@@ -1,0 +1,11 @@
+{
+  "name": "aws-check-s3",
+  "description": "Check S3 bucket exist",
+  "version": "1.0.0",
+  "author": "Pandiarajan",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.7.9",
+    "node-fetch": "^1.6.3"
+  }
+}

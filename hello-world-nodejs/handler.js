@@ -1,18 +1,13 @@
-'use strict';
+"use strict";
+const AWS = require("aws-sdk");
+const s3 = new AWS.S3();
 
-module.exports.hello = async event => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: 'Code updated from sls',
-        input: event,
-      },
-      null,
-      2
-    ),
-  };
-
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
+module.exports.hello = async (event) => {
+  console.log("comes inside fn", JSON.stringify(event, null, 2));
+  try {
+    const data = await s3.listBuckets().promise();
+    return data
+  } catch (e) {
+    return e.message
+  }
 };
